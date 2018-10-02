@@ -1,0 +1,29 @@
+<div class="container ">
+  <h3>Download Response File</h3>
+  <br />
+  <br />
+  <div>
+    <select [(ngModel)]="defaultValue" (change)="isSelected($event)" class="custom-select custom-select-lg mb-3">
+      <option [value]=null>Please select the source system</option>
+      <option class="dropdown-item" *ngFor="let fileName of fileNames" [ngValue]="fileName">
+        {{fileName}}
+      </option>
+    </select>
+  </div>
+  <br/>
+  <div>
+      <select [(ngModel)]="defaultBatchValue" (change)="isSelected($event)" class="custom-select custom-select-lg mb-3">
+        <option [value]=null>Please select the corresponding batch id/name</option>
+        <option class="dropdown-item" *ngFor="let batch of batches" [ngValue]="batch">
+          {{batch}}
+        </option>
+      </select>
+    </div>
+  <br />
+  <div class="input-group mb-3">
+    <span>
+
+      <button class="input-group-text" (click)="Download()">Download</button>
+    </span>
+  </div>
+</div>

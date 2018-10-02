@@ -1,0 +1,26 @@
+<div class="container ">
+  <h3>Upload the file to Server</h3>
+  <br/>
+  <br/>
+  <div>
+    <select [(ngModel)]="defaultValue" (change)="isSelected($event)" class="custom-select custom-select-lg mb-3">
+      <option [value]=null>Please select the source system</option>
+      <option class="dropdown-item" *ngFor="let fileName of fileNames" [ngValue]="fileName">
+        {{fileName}}
+      </option>
+    </select>
+  </div>
+  <br />
+  <div class="input-group mb-3">
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="selectFile($event)">
+      <label ng-If="!selectedFiles.length>0" class="custom-file-label" for="inputGroupFile02">Choose file</label>
+      <label ng-If="selectedFiles.length>0" class="custom-file-label" for="inputGroupFile02">{{chosenFileName}}</label>
+    </div>
+    <div class="input-group-append">
+      <span>
+        <button class="input-group-text" id="" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+        </span>
+    </div>
+  </div>
+</div>
